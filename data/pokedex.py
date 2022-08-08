@@ -1,44 +1,43 @@
-class Pokemon:
-  def __init__(self, name, id):
-    self.name = name
-    self.id = id 
+# Dictionary of Pokemon and their stats
 
-class Bulbasaur(Pokemon): # Subclass 1 of Pokemon
-  def __init__(self, name, id):
-    super().__init__(name, id)
+from data import moves
+
+
+
+
+class Bulbasaur: # 
+  def __init__(self):
+    self.name = "Bulbasaur"
+    self.id = 1
     self.type = "Grass"
-    self.moves = {
-      "Tackle": dict(),
-      "Growl": dict(),
-      "Vine Whip": dict(), 
-      "Growth": dict()
-    }
+    self.moves = [moves.tackle, moves.growl]
     self.level = 5
-    self.hp = 39
-    self.attack = 52
-    self.defense = 43
-    self.speed = 65
+    self.max_hp = 39
+    self.max_atk = 52
+    self.max_def = 43
+    self.max_spd = 65
 
-class Charmander(Pokemon): # Subclass 1 of Pokemon
-  def __init__(self, name, id):
-    super().__init__(name, id)
-    self.type = []
-    self.moves = dict()
+class Charmander: # 
+  def __init__(self):
+    self.name = "Charmander"
+    self.id = 4
+    self.type = "Fire"
+    self.moves = [moves.tackle, moves.growl]
     self.level = 5
-    self.hp = 39
-    self.attack = 52
-    self.defense = 43
-    self.speed = 65
+    self.max_hp = 39
+    self.max_atk = 52
+    self.max_def = 43
+    self.max_spd = 65
 
-class Charmander(Pokemon): # Subclass 1 of Pokemon
-  def __init__(self, name, id):
-    super().__init__(name, id)
-    self.type = []
-    self.moves = dict()
+class Squirtle: # 
+  def __init__(self):
+    self.name = "Squirtle"
+    self.id = 7
+    self.type = "Water"
+    self.moves = [moves.tackle, moves.growl]
     self.level = 5
-    self.hp = 39
-    self.attack = 52
-    self.defense = 43
-    self.speed = 65
+    self.max_hp = 39
+    self.max_atk = 52
+    self.max_def = 43
+    self.max_spd = 65
 
-charmander = Pokemon("Charmander", 1)
