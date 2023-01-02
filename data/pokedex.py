@@ -25,7 +25,7 @@ def extract_from_file(file):
         working_list = []
 
         for row in reader:
-            working_list.append(str(row))
+            working_list.append(row)
         return working_list 
 
 def generate_pokemon():
@@ -37,6 +37,7 @@ def generate_pokemon():
         writer.writerow(['Name', 'Type', 'Level', 'Max HP', 'Attack', 'Defense', 'Speed'])
 
         for mon in poke_data:
+            mon = mon[0]
             print(mon)
             max_hp = random.randint(19, 23)
             attack = random.randint(30, 50)
