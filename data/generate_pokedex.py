@@ -1,8 +1,8 @@
 import csv
 import random
 
-prefix = ['fire', 'water', 'ice', 'smoke', 'grass', 'dark', 'ghost', 'wind']
-suffix = ['claw', 'tooth', 'fang', 'paw', 'talon', 'tail', 'feather']
+prefix = ['fire', 'water', 'ice', 'grass', 'dark', 'ghost', 'fly', 'rock', 'ground', 'steel', 'fairy', 'fighting', 'electric', 'poison', 'bug', 'dragon', 'psychic']
+suffix = ['claw', 'tooth', 'fang', 'paw', 'talon', 'tail', 'feather', 'wing', 'fist', 'foot', 'digon', 'rax']
 
 # creates random names from above data
 def create_names():
