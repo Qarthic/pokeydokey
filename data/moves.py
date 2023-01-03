@@ -1,6 +1,9 @@
 # from data import Pokemon
+# Step 3 in generating poke's: adding moveset list to 'dex
+
 from pokemon import Pokemon as P
 import random
+import csv
 
 # A dictionary of moves and their power
 
@@ -69,4 +72,18 @@ struggle_bug = Damaging(20, "Struggle Bug", "Bug", "Foe", .5, 1)
 
 move_list = [water_gun, bullet_punch, rock_tomb, confusion, sludge, tackle, growl, leer, powder_snow, bulldoze, sand_attack, razor_leaf, shadow_sneak, gust, ember, rock_smash, fairy_wind, thunder_shock, twister, bite, struggle_bug]
 
-print(move_list.count(Move.element("Normal")))
+element = ['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Fly', 'Ghost', 'Grass', 'Ground', 'Ice', 'Poison', 'Psychic', 'Rock', 'Steel', 'Water']
+
+def create_moveset_list():
+    move_set = {}
+    for i in element: 
+        move_set[i] = []
+        for j in move_list:
+            if j.element == i:
+                move_set[i].append(j)
+        move_set[i].append(growl)
+        move_set[i].append(leer)
+        move_set[i].append(sand_attack)
+    return move_set
+
+

@@ -1,12 +1,14 @@
+# Step 1 in generating poke's: Create name 
+
 import csv
 import random
 
-prefix = ['fire', 'water', 'ice', 'grass', 'dark', 'ghost', 'fly', 'rock', 'ground', 'steel', 'fairy', 'fighting', 'electric', 'poison', 'bug', 'dragon', 'psychic']
+prefix = ['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Fly', 'Ghost', 'Grass', 'Ground', 'Ice', 'Poison', 'Psychic', 'Rock', 'Steel', 'Water']
 suffix = ['claw', 'tooth', 'fang', 'paw', 'talon', 'tail', 'feather', 'wing', 'fist', 'foot', 'digon', 'rax']
 
 # creates random names from above data
 def create_names():
-    num_to_create = int(input())
+    num_to_create = int(input("Input a number: "))
     pokedex = []
 
     for _ in range(num_to_create):
@@ -20,7 +22,7 @@ def create_names():
 # generates .csv file from create_names function
 def generate_file():
     pokedex = create_names()
-    filename = input()
+    filename = input("What would you like to name the file: ")
 
     with open(filename, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
@@ -31,4 +33,3 @@ def generate_file():
 
     return filename
 
-generate_file()
