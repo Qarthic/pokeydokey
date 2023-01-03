@@ -24,10 +24,11 @@ def generate_file():
 
     with open(filename, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
-
         writer.writerow(['name'])
 
         for i in pokedex:
             writer.writerow([i])
+
+    return filename
 
 generate_file()
