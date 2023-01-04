@@ -1,11 +1,59 @@
-# from data import Pokemon
-# Step 3 in generating poke's: adding moveset list to 'dex
+# Step 1 in generating poke's: Create name 
 
-from pokemon import Pokemon as P
-import random
 import csv
+import random
 
-# A dictionary of moves and their power
+# Pokemon Class
+
+class Pokemon:
+    def __init__(self, name: str, element: str, level: int, max_hit_points: int, attack: int, defense: int, speed: int, evasion: float, accuracy: float, moves: list):
+        self.name = name
+        self.element = element
+        self.level = level
+        self.max_hit_points = max_hit_points
+        self.attack = attack
+        self.defense = defense
+        self.speed = speed
+        self.evasion = evasion
+        self.accuracy = accuracy
+        self.moves = moves
+
+
+# Generate Names START
+
+prefix = ['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Fly', 'Ghost', 'Grass', 'Ground', 'Ice', 'Poison', 'Psychic', 'Rock', 'Steel', 'Water']
+suffix = ['claw', 'tooth', 'fang', 'paw', 'talon', 'tail', 'feather', 'wing', 'fist', 'foot', 'digon', 'rax']
+
+# creates random names from above data
+def create_names():
+    num_to_create = int(input("Input a number: "))
+    pokedex = []
+
+    for _ in range(num_to_create):
+        name = random.choice(prefix) + random.choice(suffix)
+        if name not in pokedex:
+            pokedex.append(name)
+        else: 
+            pass
+    return pokedex
+
+# generates .csv file from create_names function
+def generate_file():
+    pokedex = create_names()
+    filename = input("What would you like to name the file: ")
+
+    with open(filename, 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(['name'])
+
+        for i in pokedex:
+            writer.writerow([i])
+
+    return filename
+
+# Generate Names STOP
+
+# Generate Moves START
 
 class Move:
   def __init__(self, pp, name, element, target):
@@ -86,4 +134,51 @@ def create_moveset_list():
         move_set[i].append(sand_attack)
     return move_set
 
+# Generate moves STOP
+
+# Generate final pokedex file START
+
+element = ['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Fly', 'Ghost', 'Grass', 'Ground', 'Ice', 'Poison', 'Psychic', 'Rock', 'Steel', 'Water']
+
+def extract_from_file(file):
+    
+    with open(file, 'r') as dex_file:
+        reader = csv.reader(dex_file)
+        working_list = []
+
+        for row in reader:
+            working_list.append(row)
+        return working_list 
+
+def generate_pokemon():
+    poke_data = extract_from_file(generate_file())
+    move_set = create_moveset_list()
+
+    with open('pokedex.csv', 'w', newline='') as pokedex:
+        writer = csv.writer(pokedex)
+        
+        writer.writerow(['Name', 'Element', 'Level', 'Max HP', 'Attack', 'Defense', 'Speed', 'Accuracy', 'Evasion', 'Moves'])
+
+        for mon in poke_data:
+            mon = mon[0]
+            max_hp = random.randint(19, 23)
+            attack = random.randint(30, 50)
+            defense = random.randint(30, 50)
+            speed = random.randint(20, 40)
+            accuracy = 1.0
+            evasion = 1.0
+
+            if mon == 'name':
+                pass
+            else:
+                for i in element:
+                    if i in mon:
+                        moves = move_set[i]
+                        writer.writerow([str(mon), i, 5, max_hp, attack, defense, speed, accuracy, evasion, moves])
+        finished = "Pokedex generated. Good luck Mr. Ketchum! "
+        return finished
+
+# generate_pokemon()
+
+# Generate final pokedex file STOP
 
