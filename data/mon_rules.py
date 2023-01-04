@@ -3,9 +3,9 @@
 import csv
 import random
 
-# Pokemon Class
+# Mon Class
 
-class Pokemon:
+class Mon:
     def __init__(self, name: str, element: str, level: int, max_hit_points: int, attack: int, defense: int, speed: int, evasion: float, accuracy: float, moves: list):
         self.name = name
         self.element = element
@@ -17,6 +17,15 @@ class Pokemon:
         self.evasion = evasion
         self.accuracy = accuracy
         self.moves = moves
+        self.stats = {
+            "Level": int(level),
+            "HP": int(max_hit_points),
+            "ATK": int(attack),
+            "DEF": int(defense),
+            "SP": int(speed),
+            "EVA": float(evasion),
+            "ACC": float(accuracy)
+        }
 
 
 # Generate Names START
@@ -69,17 +78,17 @@ class Damaging(Move):
         self.power = float(power)
         self.accuracy = float(accuracy)
 
-    # To-do: Import Pokemon to determine power when hitting a target
+    # To-do: Import Mon to determine power when hitting a target
 
     def crit_check(self):
-        if random.randrange(0, 255) in range(0, (P.speed/2)):
+        if random.randrange(0, 255) in range(0, (Mon.speed/2)):
             return True
         else:
             return False
 
     def attack(self):
-        if random.randrange(0, 100) in range(0, (P.accuracy * 100)):
-            self.target.hp - ((self.power + P.attack) * self.target.defense)
+        if random.randrange(0, 100) in range(0, (Mon.accuracy * 100)):
+            self.target.hp - ((self.power + Mon.attack) * self.target.defense)
 
 class Buff_Debuff(Move):
     def __init__(self, pp: int, name: str, buff: bool, target: str, stage: int, stat: str):
@@ -150,7 +159,7 @@ def extract_from_file(file):
             working_list.append(row)
         return working_list 
 
-def generate_pokemon():
+def generate_mon():
     poke_data = extract_from_file(generate_file())
     move_set = create_moveset_list()
 
@@ -178,7 +187,7 @@ def generate_pokemon():
         finished = "Pokedex generated. Good luck Mr. Ketchum! "
         return finished
 
-# generate_pokemon()
+# generate_mon()
 
 # Generate final pokedex file STOP
 

@@ -2,22 +2,27 @@
 import sys
 sys.path.append("pokeydokey\data")
 
-from data import pokemon_rules as pr
+from data import mon_rules as pr
 import random
 from time import sleep
 
 pokedex = pr.extract_from_file("pokedex.csv")
 
-element = ['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Fly', 'Ghost', 'Grass', 'Ground', 'Ice', 'Poison', 'Psychic', 'Rock', 'Steel', 'Water']
+element = [
+    'Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 
+    'Fighting', 'Fire', 'Fly', 'Ghost', 'Grass', 
+    'Ground', 'Ice', 'Poison', 'Psychic', 'Rock', 
+    'Steel', 'Water'
+    ]
 
-def display_options() -> str:
+def display_options() -> str: # Prints elemental options 
     print("1. Bug       5. Fairy        9. Ghost        13. Poison      17. Water\n2. Dark      6. Fighting     10. Grass       14. Psychic\n3. Dragon    7. Fire         11. Ground      15. Rock        \n4. Electric  8. Fly          12. Ice         16. Steel\n")
 
-def create_mon_object(mon) -> object:
-    mon = pr.Pokemon(mon[0], mon[1], mon[2], mon[3], mon[4], mon[5], mon[6], mon[7], mon[8], mon[9])
+def create_mon_object(mon) -> object: # Inits 'mon object 
+    mon = pr.Mon(mon[0], mon[1], mon[2], mon[3], mon[4], mon[5], mon[6], mon[7], mon[8], mon[9])
     return mon
 
-def vowel(mon) -> str:
+def vowel(mon) -> str: # Checks 'mon for a vowel 
     vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
     if mon.name[0] in vowels:
         answer = f"an {mon.name}"
@@ -26,7 +31,7 @@ def vowel(mon) -> str:
         answer = f"a {mon.name}"
         return answer
 
-def input_check(text) -> str:
+def input_check(text) -> str: # Check to ensure input is <17 and an int
     check = False
     while check == False:
         try:
@@ -40,18 +45,13 @@ def input_check(text) -> str:
 
     return int(text)
 
-
-def player_pick_mon() -> pr.Pokemon:
-    print(f"Hello adventurer! What element 'mon would you like to choose?")
-    display_options()
-
+def player_pick_mon() -> pr.Mon: # Pick an element and get assigned a random, correlating 'mon. 
     player_choice = input("-> ")
-    
     player_choice = element[input_check(player_choice)-1]
 
     print(f"You've decided on a {player_choice} type 'mon.")
 
-    n = random.randrange(1, 41)
+    n = random.randrange(1, 114)
     choose_dex = pokedex[n::]
 
     for num, i in enumerate(choose_dex):
@@ -60,8 +60,7 @@ def player_pick_mon() -> pr.Pokemon:
             print(f"You have selected {vowel(player_mon)}\n")
             return player_mon
 
-
-def computer_pick_mon() -> pr.Pokemon:
+def computer_pick_mon() -> pr.Mon: # Rival will randomly select a 'mon. 
     print("Now your rival will select their 'mon.")
     for i in range(3):
         print('.', end='')
@@ -76,5 +75,3 @@ def computer_pick_mon() -> pr.Pokemon:
 
     return computer_mon
 
-my_mon = player_pick_mon()
-comp_mon = computer_pick_mon()
