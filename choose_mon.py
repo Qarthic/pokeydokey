@@ -2,7 +2,7 @@
 import sys
 sys.path.append("pokeydokey\data")
 
-from data import mon_rules as pr
+from dex_data import mon_rules as pr
 import random
 from time import sleep
 
