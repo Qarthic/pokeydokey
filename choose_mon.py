@@ -2,11 +2,15 @@
 import sys
 sys.path.append("pokeydokey\data")
 
+import psycopg2
+
+conn = psycopg2.connection
+
 from dex_data import mon_rules as pr
 import random
 from time import sleep
 
-pokedex = pr.extract_from_file("pokedex.csv")
+pokedex = pr.extract_from_file("data\pokedex.csv")
 
 element = [
     'Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 
@@ -18,8 +22,11 @@ element = [
 def display_options() -> str: # Prints elemental options 
     print("1. Bug       5. Fairy        9. Ghost        13. Poison      17. Water\n2. Dark      6. Fighting     10. Grass       14. Psychic\n3. Dragon    7. Fire         11. Ground      15. Rock        \n4. Electric  8. Fly          12. Ice         16. Steel\n")
 
+# def create_moveset(mon):
+    
+
 def create_mon_object(mon) -> object: # Inits 'mon object 
-    mon = pr.Mon(mon[0], mon[1], mon[2], mon[3], mon[4], mon[5], mon[6], mon[7], mon[8], mon[9])
+    mon = pr.Mon(mon[0], mon[1], mon[2], mon[3], mon[4], mon[5], mon[6], mon[7], mon[8])
     return mon
 
 def vowel(mon) -> str: # Checks 'mon for a vowel 
@@ -46,7 +53,10 @@ def input_check(text) -> str: # Check to ensure input is <17 and an int
     return int(text)
 
 def player_pick_mon() -> pr.Mon: # Pick an element and get assigned a random, correlating 'mon. 
-    player_choice = input("-> ")
+    
+
+    display_options()
+    player_choice = input("Welcome to the wonderful world of... mon. Please choose a number from the options provided: ")
     player_choice = element[input_check(player_choice)-1]
 
     print(f"You've decided on a {player_choice} type 'mon.")

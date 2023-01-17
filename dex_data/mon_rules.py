@@ -1,5 +1,6 @@
 # Step 1 in generating poke's: Create name 
-
+import sys
+sys.path.append("pokeydokey\data")
 import csv
 import random
 
