@@ -1,5 +1,3 @@
-CREATE DATABASE mon_dex;
-
 CREATE TABLE mon
 (
     Mon_id SERIAL,
@@ -13,7 +11,7 @@ CREATE TABLE mon
     Mon_Speed INT NOT NULL,
     Mon_Accuracy FLOAT NOT NULL,
     Mon_Evasion FLOAT NOT NULL,
-    PRIMARY KEY(id)
+    PRIMARY KEY(Mon_id)
 );
 
 CREATE TABLE moves
@@ -52,7 +50,5 @@ CREATE TABLE elements
     "vs_Dark" FLOAT NOT NULL,
     "vs_Steel" FLOAT NOT NULL,
     "vs_Fairy" FLOAT NOT NULL,
-    PRIMARY KEY(Element),
-    FOREIGN KEY(FK_Mon_Elements) REFERENCES mon(Mon_Element_1, Mon_Element_2)
-    FOREIGN KEY(FK_Move_Element) REFERENCES moves(Move_Element)
+    PRIMARY KEY(Element)
 );

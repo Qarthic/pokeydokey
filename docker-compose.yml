@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+    pg:
+        container_name: pg_mon_container
+        image: postgres:15.1
+        restart: always
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: king1926
+            PGDATA: /data/
+            PGUSER: postgres
+        ports:
+            - "3002:3002"
+        volumes:
+            - "${PWD}/data/:/docker-entrypoint-initdb.d/"
+    pgadmin:
+        container_name: pgadmin_mon_container
+        image: dpage/pgadmin4
+        restart: always
+        environment:
+            PGADMIN_DEFAULT_EMAIL: admin@example.com
+            PGADMIN_DEFAULT_PASSWORD: king1926
+            PGADMIN_LISTEN_PORT: 3003
+            PGADMIN_CONFIG_SERVER_MODE: "False"
+            PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: "False"
+            PGADMIN_CONFIG_UPGRADE_CHECK_ENABLED: "False"
+        ports:
+          - "3003:3003"
+        depends_on:
+          - pg
