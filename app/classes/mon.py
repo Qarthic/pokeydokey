@@ -5,11 +5,12 @@ import random
 import csv
 
 class Mon:
-    def __init__(self, name:str, level: int, max_hp: int, attack: int, defense:int, speed:int, accuracy:float, evasion:float, element:str
+    def __init__(self, name:str, level: int, max_hp: int, hp: int, attack: int, defense:int, speed:int, accuracy:float, evasion:float, element:str
                  ):
         self.name = name
         self.level = level
         self.max_hp = max_hp
+        self.hp = hp
         self.attack = attack
         self.defense = defense
         self.speed = speed
@@ -99,5 +100,27 @@ def create_mon_objects(): # generates mon_objects
     
     return mon_dex
 
-mon_dex = create_mon_objects()
-# def write_to_db():
+def write_to_csv(): #Writes .csv file to be uploaded to server 
+    mon_dex = create_mon_objects()
+    
+    with open('mon_dex.csv', 'w', newline='') as dex:
+        writer = csv.writer(dex)
+
+        writer.writerow(["Name", "Level", "Max HP", "Attack", "Defense", "Speed", "Accuracy", "Evasion", "Element", "Moves"])
+
+        for i in mon_dex:
+            mon = [
+                str(i.name),
+                str(i.level),
+                int(i.max_hp),
+                int(i.attack),
+                int(i.defense),
+                int(i.speed),
+                float(i.accuracy),
+                float(i.evasion),
+                str(i.element),
+                list(i.moves)
+            ]
+            writer.writerow(mon)
+    
+    return dex

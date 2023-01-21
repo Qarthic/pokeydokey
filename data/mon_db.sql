@@ -18,14 +18,14 @@ CREATE TABLE moves
 (
     Move_id SERIAL,
     Move_Name VARCHAR(255) NOT NULL,
-    Move_PP INT NOT NULL,
     Move_Element VARCHAR(255) NOT NULL,
-    Move_Target VARCHAR(255) NOT NULL,
+    Move_PP INT NOT NULL,
     Move_Power FLOAT NOT NULL,
     Move_Accuracy FLOAT NOT NULL,
     Move_Buff BOOLEAN NOT NULL,
-    Move_Target_Stat VARCHAR(255),
+    Move_Stat VARCHAR(255),
     Move_Stage INT,
+    Move_Target VARCHAR(255) NOT NULL,
     PRIMARY KEY(Move_id)
 );
 

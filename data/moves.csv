@@ -1,0 +1,23 @@
+name,element,pp,power,accuracy,buff,stat,stage,target
+Tackle,Normal,25,0.4,1,False,,0,False
+Water Gun,Water,25,0.4,1,False,,0,False
+Bullet Punch,Steel,30,0.3,1,False,,0,False
+Rock Tomb,Rock,15,0.6,0.95,False,,0,False
+Confusion,Psychic,25,0.5,1,False,,0,False
+Sludge,Poison,20,0.65,1,False,,0,False
+Tackle,Normal,35,0.4,1,False,,0,False
+Powder Snow,Ice,25,0.4,1,False,,0,False
+Bulldoze,Ground,20,0.6,1,False,,0,False
+Razor Leaf,Grass,25,0.55,0.95,False,,0,False
+Shadow Sneak,Ghost,30,0.4,1,False,,0,False
+Gust,Flying,35,0.4,1,False,,0,False
+Ember,Fire,25,0.4,1,False,,0,False
+Rock Smash,Fighting,15,0.4,1,False,,0,False
+Fairy Wind,Fairy,30,0.4,1,False,,0,False
+Thunder Shock,Electric,30,0.4,1,False,,0,False
+Twister,Dragon,20,0.4,1,False,,0,False
+Bite,Dark,25,0.6,1,False,,0,False
+Struggle Bug,Bug,20,0.5,1,False,,0,False
+Leer,,30,,,False,Defense,1,False
+Sand Attack,,15,,,False,Accuracy,1,False
+Growl,,40,,,False,Attack,1,False
