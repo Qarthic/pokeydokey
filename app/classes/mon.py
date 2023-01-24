@@ -5,8 +5,7 @@ import random
 import csv
 
 class Mon:
-    def __init__(self, name:str, level: int, max_hp: int, hp: int, attack: int, defense:int, speed:int, accuracy:float, evasion:float, element:str
-                 ):
+    def __init__(self, name:str, level: int, max_hp: int, hp: int, attack: int, defense:int, speed:int, accuracy:float, evasion:float, element:str, moves: list):
         self.name = name
         self.level = level
         self.max_hp = max_hp
@@ -17,7 +16,7 @@ class Mon:
         self.accuracy = accuracy
         self.evasion = evasion
         self.element = element
-        self.moves = []
+        self.moves = moves
         self.stats = {
             "NAME": str(name),
             "LVL": int(level),
@@ -28,7 +27,7 @@ class Mon:
             "EVA": float(evasion),
             "ACC": float(accuracy),
             "ELM": str(element),
-            "MVS": list()
+            "MVS": list(moves)
         }
 
 elements = [ # List of all mon elements
@@ -55,72 +54,72 @@ suffix = [ # List of suffixes for mon naming
     'claw', 'tooth', 'fang', 'paw', 'talon', 'tail', 'feather', 'wing', 'fist', 'foot', 'digon', 'rax', 'dog', 'fox', 'cat', 'lion', 'monkey', 'eagle', 'parrot'
     ]
 
-def create_names() -> list: # generates mon names
-    mon_dex = []
+# def create_names() -> list: # generates mon names
+#     mon_dex = []
 
-    for i in elements:
-        for _ in range(3):
-            name = i + random.choice(suffix)
-            if name not in mon_dex:
-                mon_dex.append(name)
-            else:
-                pass
-    return mon_dex
+#     for i in elements:
+#         for _ in range(3):
+#             name = i + random.choice(suffix)
+#             if name not in mon_dex:
+#                 mon_dex.append(name)
+#             else:
+#                 pass
+#     return mon_dex
 
-def init_mon_dex() -> list: # ensures mon_dex is full
-    mon_dex = []
-    while True:
-        mon_dex = create_names()
-        if len(mon_dex) == 54:
-            break
-        else:
-            continue
-    return mon_dex
+# def init_mon_dex() -> list: # ensures mon_dex is full
+#     mon_dex = []
+#     while True:
+#         mon_dex = create_names()
+#         if len(mon_dex) == 54:
+#             break
+#         else:
+#             continue
+#     return mon_dex
 
-def create_mon_objects(): # generates mon_objects
-    mon_names = init_mon_dex()
-    mon_dex = []
+# def create_mon_objects(): # generates mon_objects
+#     mon_names = init_mon_dex()
+#     mon_dex = []
 
-    for i in mon_names:
-        name = i
-        for j in elements:
-            if j in name:
-                element = j
-        level = 5
-        max_hp = random.randint(18, 25)
-        attack = random.randint(30, 50)
-        defense = random.randint(30,50)
-        speed = random.randint(20, 40)
-        accuracy = 1.0
-        evasion = 1.0
+#     for i in mon_names:
+#         name = i
+#         for j in elements:
+#             if j in name:
+#                 element = j
+#         level = 5
+#         max_hp = random.randint(18, 25)
+#         attack = random.randint(30, 50)
+#         defense = random.randint(30,50)
+#         speed = random.randint(20, 40)
+#         accuracy = 1.0
+#         evasion = 1.0
 
-        mon = Mon(name, level, max_hp, attack, defense, speed, accuracy, evasion, element)
+#         mon = Mon(name, level, max_hp, attack, defense, speed, accuracy, evasion, element, moves)
 
-        mon_dex.append(mon)
+#         mon_dex.append(mon)
     
-    return mon_dex
+#     return mon_dex
 
-def write_to_csv(): #Writes .csv file to be uploaded to server 
-    mon_dex = create_mon_objects()
+# def write_to_csv(): #Writes .csv file to be uploaded to server 
+#     mon_dex = create_mon_objects()
     
-    with open('mon_dex.csv', 'w', newline='') as dex:
-        writer = csv.writer(dex)
+#     with open('mon_dex.csv', 'w', newline='') as dex:
+#         writer = csv.writer(dex)
 
-        writer.writerow(["Name", "Level", "Max HP", "Attack", "Defense", "Speed", "Accuracy", "Evasion", "Element", "Moves"])
+#         writer.writerow(["Name", "Level", "Max HP", "Attack", "Defense", "Speed", "Accuracy", "Evasion", "Element", "Moves"])
 
-        for i in mon_dex:
-            mon = [
-                str(i.name),
-                str(i.level),
-                int(i.max_hp),
-                int(i.attack),
-                int(i.defense),
-                int(i.speed),
-                float(i.accuracy),
-                float(i.evasion),
-                str(i.element),
-                list(i.moves)
-            ]
-            writer.writerow(mon)
+#         for i in mon_dex:
+#             mon = [
+#                 str(i.name),
+#                 str(i.level),
+#                 int(i.max_hp),
+#                 int(i.attack),
+#                 int(i.defense),
+#                 int(i.speed),
+#                 float(i.accuracy),
+#                 float(i.evasion),
+#                 str(i.element),
+#                 list(i.moves)
+#             ]
+#             writer.writerow(mon)
     
-    return dex
+#     return dex

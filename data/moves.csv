@@ -1,23 +1,22 @@
-name,element,pp,power,accuracy,buff,stat,stage,target
-Tackle,Normal,25,0.4,1,False,,0,False
-Water Gun,Water,25,0.4,1,False,,0,False
-Bullet Punch,Steel,30,0.3,1,False,,0,False
-Rock Tomb,Rock,15,0.6,0.95,False,,0,False
-Confusion,Psychic,25,0.5,1,False,,0,False
-Sludge,Poison,20,0.65,1,False,,0,False
-Tackle,Normal,35,0.4,1,False,,0,False
-Powder Snow,Ice,25,0.4,1,False,,0,False
-Bulldoze,Ground,20,0.6,1,False,,0,False
-Razor Leaf,Grass,25,0.55,0.95,False,,0,False
-Shadow Sneak,Ghost,30,0.4,1,False,,0,False
-Gust,Flying,35,0.4,1,False,,0,False
-Ember,Fire,25,0.4,1,False,,0,False
-Rock Smash,Fighting,15,0.4,1,False,,0,False
-Fairy Wind,Fairy,30,0.4,1,False,,0,False
-Thunder Shock,Electric,30,0.4,1,False,,0,False
-Twister,Dragon,20,0.4,1,False,,0,False
-Bite,Dark,25,0.6,1,False,,0,False
-Struggle Bug,Bug,20,0.5,1,False,,0,False
-Leer,,30,,,False,Defense,1,False
-Sand Attack,,15,,,False,Accuracy,1,False
-Growl,,40,,,False,Attack,1,False
+name,element,pp,power,accuracy,buff,stat,stage,target,element_id
+Tackle,Normal,25,0.4,1,False,,0,False,1
+Ember,Fire,25,0.4,1,False,,0,False,2
+Water Gun,Water,25,0.4,1,False,,0,False,3
+Thunder Shock,Electric,30,0.4,1,False,,0,False,4
+Razor Leaf,Grass,25,0.55,0.95,False,,0,False,5
+Powder Snow,Ice,25,0.4,1,False,,0,False,6
+Rock Smash,Fighting,15,0.4,1,False,,0,False,7
+Sludge,Poison,20,0.65,1,False,,0,False,8
+Bulldoze,Ground,20,0.6,1,False,,0,False,9
+Gust,Flying,35,0.4,1,False,,0,False,10
+Confusion,Psychic,25,0.5,1,False,,0,False,11
+Struggle Bug,Bug,20,0.5,1,False,,0,False,12
+Rock Tomb,Rock,15,0.6,0.95,False,,0,False,13
+Shadow Sneak,Ghost,30,0.4,1,False,,0,False,14
+Twister,Dragon,20,0.4,1,False,,0,False,15
+Bite,Dark,25,0.6,1,False,,0,False,16
+Bullet Punch,Steel,30,0.3,1,False,,0,False,17
+Fairy Wind,Fairy,30,0.4,1,False,,0,False,18
+Leer,,30,0,0,False,Defense,1,False,
+Sand Attack,,15,0,0,False,Accuracy,1,False,
+Growl,,40,0,0,False,Attack,1,False,
